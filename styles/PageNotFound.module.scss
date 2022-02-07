@@ -1,0 +1,16 @@
+#container {
+  width: 100%;
+  height: calc(60vh - 7.2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (min-width: 48em) {
+  #container {
+    h1 {
+      font-size: 4.8rem;
+    }
+  }
+}
