@@ -75,7 +75,7 @@ const DesktopNavigation = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
-              <Link href="/about" passHref>
+              <Link href="/about-me" passHref>
                 <a
                   className={
                     router.pathname === "/about"
