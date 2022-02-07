@@ -39,7 +39,7 @@ const MobileNavigation = () => {
         </div>
       </div>
       {/* Nav container */}
-      <div
+      <nav
         id={styles.navContainer}
         className={isActive ? `${styles.active}` : null}
       >
@@ -137,7 +137,7 @@ const MobileNavigation = () => {
             </Link>
           </li>
         </ul>
-      </div>
+      </nav>
     </>
   );
 };
