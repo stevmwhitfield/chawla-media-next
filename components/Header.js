@@ -4,17 +4,15 @@ import DesktopNavigation from "./DesktopNavigation";
 
 const Header = () => {
   const size = useWindowSize();
-  if (size.width < 768 || size.height < 768) {
+  if (size.width < 1024 || size.height < 480) {
     return (
       <header>
-        <p>Mobile</p>
         <MobileNavigation />
       </header>
     );
   } else {
     return (
       <header>
-        <p>Desktop</p>
         <DesktopNavigation />
       </header>
     );
