@@ -32,7 +32,7 @@
   position: absolute;
   width: 8%;
   height: 500%;
-  background: #1a1a1a;
+  background: #121212;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-60deg);
@@ -46,7 +46,7 @@
 }
 
 .button:hover {
-  color: #1a1a1a;
+  color: #121212;
 }
 
 .button:active span::before {
