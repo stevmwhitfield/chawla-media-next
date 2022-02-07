@@ -15,12 +15,16 @@ const MobileNavigation = () => {
       {/* Logo and button container */}
       <div id={styles.headerContainer}>
         <div id={styles.logo}>
-          <Image
-            src="/chawla-media-logo.png"
-            alt="Chawla Media Logo"
-            width={160}
-            height={48}
-          ></Image>
+          <Link href="/">
+            <a>
+              <Image
+                src="/chawla-media-logo.png"
+                alt="Chawla Media Logo"
+                width={160}
+                height={48}
+              ></Image>
+            </a>
+          </Link>
         </div>
         <div
           id={styles.navButton}
@@ -58,7 +62,7 @@ const MobileNavigation = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="#shop" passHref>
+            <Link href="/shop" passHref>
               <a
                 className={
                   router.pathname === "/shop" ||
@@ -72,7 +76,7 @@ const MobileNavigation = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="#portfolio" passHref>
+            <Link href="/portfolio" passHref>
               <a
                 className={
                   router.pathname === "/portfolio"
@@ -85,7 +89,7 @@ const MobileNavigation = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="#bookings" passHref>
+            <Link href="/bookings" passHref>
               <a
                 className={
                   router.pathname === "/bookings"
@@ -98,7 +102,7 @@ const MobileNavigation = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="#contact" passHref>
+            <Link href="/contact" passHref>
               <a
                 className={
                   router.pathname === "/contact"
@@ -111,7 +115,7 @@ const MobileNavigation = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="#about" passHref>
+            <Link href="/about" passHref>
               <a
                 className={
                   router.pathname === "/about"
@@ -124,7 +128,7 @@ const MobileNavigation = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="#faq" passHref>
+            <Link href="/faq" passHref>
               <a
                 className={
                   router.pathname === "/faq"

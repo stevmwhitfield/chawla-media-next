@@ -36,7 +36,7 @@ const DesktopNavigation = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
-              <Link href="#portfolio" passHref>
+              <Link href="/portfolio" passHref>
                 <a
                   className={
                     router.pathname === "/portfolio"
@@ -49,7 +49,7 @@ const DesktopNavigation = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
-              <Link href="#bookings" passHref>
+              <Link href="/bookings" passHref>
                 <a
                   className={
                     router.pathname === "/bookings"
@@ -62,7 +62,7 @@ const DesktopNavigation = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
-              <Link href="#contact" passHref>
+              <Link href="/contact" passHref>
                 <a
                   className={
                     router.pathname === "/contact"
@@ -75,7 +75,7 @@ const DesktopNavigation = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
-              <Link href="#about" passHref>
+              <Link href="/about" passHref>
                 <a
                   className={
                     router.pathname === "/about"
@@ -88,7 +88,7 @@ const DesktopNavigation = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
-              <Link href="#faq" passHref>
+              <Link href="/faq" passHref>
                 <a
                   className={
                     router.pathname === "/faq"
@@ -104,7 +104,7 @@ const DesktopNavigation = () => {
         </nav>
         <div id={styles.shop}>
           <button className="button">
-            <Link href="/#shop" passHref>
+            <Link href="/shop" passHref>
               <a>
                 SHOP
                 <span></span>
