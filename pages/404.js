@@ -1,17 +1,16 @@
-import Header from "../components/Header";
-import styles from "../styles/PageNotFound.module.scss";
+import Layout from "../components/Layout/Layout";
+import styles from "../styles/404/PageNotFound.module.scss";
 
 const PageNotFound = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <div id={styles.container}>
         <span>
           <h1>Error 404</h1>
           <h2>Page not found.</h2>
         </span>
       </div>
-    </>
+    </Layout>
   );
 };
 
