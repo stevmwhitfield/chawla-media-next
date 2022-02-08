@@ -1,5 +1,5 @@
 import Layout from "../components/Layout/Layout";
-import styles from "../styles/PageNotFound.module.scss";
+import styles from "../styles/404/PageNotFound.module.scss";
 
 const PageNotFound = () => {
   return (
