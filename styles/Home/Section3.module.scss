@@ -68,9 +68,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: 0.3s all;
+
+      &:hover {
+        background-color: transparent;
+
+        .text {
+          font-size: 3.4rem;
+        }
+      }
 
       .text {
         font-size: 3.2rem;
+        transition: 0.1s all;
       }
     }
   }
