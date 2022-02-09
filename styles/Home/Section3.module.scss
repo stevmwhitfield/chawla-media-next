@@ -22,17 +22,93 @@
       background-size: cover;
     }
 
-    &#first::before {
-      background-image: url("/bookings-1.jpg");
+    &#first {
+      z-index: 99;
+
+      &::before {
+        background-image: url("/bookings-1.jpg");
+      }
     }
-    &#second::before {
-      background-image: url("/bookings-2.jpg");
+
+    &#second {
+      z-index: 98;
+      transform: translateY(-10%);
+
+      &::before {
+        background-image: url("/bookings-2.jpg");
+      }
     }
-    &#third::before {
-      background-image: url("/bookings-3.jpg");
+
+    &#third {
+      z-index: 97;
+      transform: translateY(-20%);
+
+      &::before {
+        background-image: url("/bookings-3.jpg");
+      }
     }
-    &#fourth::before {
-      background-image: url("/bookings-4.jpg");
+
+    &#fourth {
+      z-index: 96;
+      transform: translateY(-30%);
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+
+      &#fourth::before {
+        background-image: url("/bookings-4.jpg");
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#191919, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .text {
+        font-size: 3.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 30em) {
+  #three .container .overlay .text {
+    font-size: 4.2rem;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  #three {
+    flex-direction: row;
+
+    .container {
+      width: 100%;
+      max-height: 60rem;
+      clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
+
+      &#second,
+      &#third {
+        transform: translateX(-10%);
+        clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+      }
+
+      &#third {
+        transform: translateX(-20%);
+      }
+
+      &#fourth {
+        transform: translateX(-30%);
+        clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      .overlay .text {
+        font-size: 2.8rem;
+      }
     }
   }
 }

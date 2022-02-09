@@ -10,17 +10,17 @@ const Section3 = () => {
       </div>
       <div id={styles.second} className={styles.container}>
         <div className={styles.overlay}>
-          <h2 className={styles.text}>Stills</h2>
+          <h2 className={styles.text}>Rollers</h2>
         </div>
       </div>
       <div id={styles.third} className={styles.container}>
         <div className={styles.overlay}>
-          <h2 className={styles.text}>Stills</h2>
+          <h2 className={styles.text}>Portraits</h2>
         </div>
       </div>
       <div id={styles.fourth} className={styles.container}>
         <div className={styles.overlay}>
-          <h2 className={styles.text}>Stills</h2>
+          <h2 className={styles.text}>Cinematics</h2>
         </div>
       </div>
     </section>
