@@ -1,0 +1,38 @@
+#three {
+  display: flex;
+  flex-direction: column;
+
+  .container {
+    position: relative;
+    width: 100%;
+    height: 90vw;
+    clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1;
+
+      background-position: center 60%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &#first::before {
+      background-image: url("/bookings-1.jpg");
+    }
+    &#second::before {
+      background-image: url("/bookings-2.jpg");
+    }
+    &#third::before {
+      background-image: url("/bookings-3.jpg");
+    }
+    &#fourth::before {
+      background-image: url("/bookings-4.jpg");
+    }
+  }
+}
