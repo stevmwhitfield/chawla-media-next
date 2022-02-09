@@ -1,6 +1,8 @@
-#buttonLeft,
-#buttonRight {
-  display: none;
+#buttonContainer {
+  #buttonLeft,
+  #buttonRight {
+    display: none;
+  }
 }
 
 #galleryContainer {
@@ -32,21 +34,63 @@
 }
 
 @media screen and (min-width: 64em) {
-  #buttonLeft {
-    display: unset;
-    padding: 0.5em 1.5em;
-    cursor: pointer;
-  }
+  #buttonContainer {
+    position: absolute;
+    width: 100vw;
+    height: 48rem;
 
-  #buttonRight {
-    display: unset;
-    padding: 0.5em 1.5em;
-    cursor: pointer;
+    #buttonLeft,
+    #buttonRight {
+      width: 7.2rem;
+      height: 7.2rem;
+      border-radius: 100%;
+      display: unset;
+      padding: 0.5em 1.5em;
+      cursor: pointer;
+      border: none;
+      background-color: rgba(#1a1a1a, 0.4);
+      position: absolute;
+      z-index: 100;
+      transition: 0.1s all;
+
+      span {
+        width: 7.2rem;
+        height: 7.2rem;
+        border-radius: 100%;
+        background: url("/arrow-sm.png");
+        background-size: cover;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    #buttonLeft {
+      transform: translateY(-50%) rotate(90deg);
+      top: 50%;
+      left: 4.8rem;
+
+      &:hover {
+        left: 4.2rem;
+      }
+    }
+
+    #buttonRight {
+      transform: translateY(-50%) rotate(-90deg);
+      top: 50%;
+      right: 4.8rem;
+
+      &:hover {
+        right: 4.2rem;
+      }
+    }
   }
 
   #galleryContainer {
     height: 48rem;
     gap: 1.6rem;
+    position: relative;
 
     .imageContainer {
       width: 34.8rem;

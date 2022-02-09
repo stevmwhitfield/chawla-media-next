@@ -118,7 +118,7 @@ const MobileNavigation = () => {
             <Link href="/about-me" passHref>
               <a
                 className={
-                  router.pathname === "/about"
+                  router.pathname === "/about-me"
                     ? `${styles.navLink} ${styles.active}`
                     : `${styles.navLink}`
                 }
