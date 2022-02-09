@@ -1,11 +1,10 @@
-import HorizontalGallery from "../components/Gallery/HorizontalGallery";
 import Layout from "../components/Layout/Layout";
+import Section1 from "../components/Home/Section1";
 
 const HomePage = () => {
   return (
     <Layout>
-      <h1>Home Page.</h1>
-      <HorizontalGallery />
+      <Section1 />
     </Layout>
   );
 };
