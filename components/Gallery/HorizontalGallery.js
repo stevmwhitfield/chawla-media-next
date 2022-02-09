@@ -10,7 +10,6 @@ const HorizontalGallery = () => {
     const buttonLeft = document.getElementById(styles.buttonLeft);
     const container = document.getElementById(styles.galleryContainer);
     container.scrollTo(0, 0);
-    // buttonLeft.style.display = "none";
     buttonLeft.style.visibility = "hidden";
   }, []);
 
@@ -37,36 +36,34 @@ const HorizontalGallery = () => {
 
   const checkScrollPosition = (container, buttonLeft, buttonRight) => {
     if (container.offsetWidth + container.scrollLeft >= container.scrollWidth) {
-      // buttonRight.style.display = "none";
       buttonRight.style.visibility = "hidden";
     } else {
-      // buttonRight.style.display = "unset";
       buttonRight.style.visibility = "visible";
     }
     if (container.offsetWidth + container.scrollLeft <= screen.width) {
-      // buttonLeft.style.display = "none";
       buttonLeft.style.visibility = "hidden";
     } else {
-      // buttonLeft.style.display = "unset";
       buttonLeft.style.visibility = "visible";
     }
   };
 
   return (
     <>
-      <button id={styles.buttonLeft} onClick={() => setScrollDirection("left")}>
-        Click to scroll left
-      </button>
-      <button
-        id={styles.buttonRight}
-        onClick={() => setScrollDirection("right")}
-      >
-        Click to scroll right
-      </button>
-      <div
-        id={styles.galleryContainer}
-        onClick={(e) => console.log("scroll left: " + e.target.scrollLeft)}
-      >
+      <div id={styles.buttonContainer}>
+        <button
+          id={styles.buttonLeft}
+          onClick={() => setScrollDirection("left")}
+        >
+          <span></span>
+        </button>
+        <button
+          id={styles.buttonRight}
+          onClick={() => setScrollDirection("right")}
+        >
+          <span></span>
+        </button>
+      </div>
+      <div id={styles.galleryContainer}>
         {data.map((image, i) => {
           let isVertical = image.height > image.width;
           return (
@@ -82,11 +79,7 @@ const HorizontalGallery = () => {
                 src={image.src}
                 alt={image.alt}
                 layout="fill"
-                className={
-                  isVertical
-                    ? `${styles.galleryImage} ${styles.vertical}`
-                    : `${styles.galleryImage}`
-                }
+                className={isVertical ? `${styles.vertical}` : null}
               ></Image>
             </div>
           );
