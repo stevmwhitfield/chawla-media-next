@@ -1,0 +1,124 @@
+#three {
+  display: flex;
+  flex-direction: column;
+
+  .container {
+    position: relative;
+    width: 100%;
+    height: 90vw;
+    clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1;
+
+      background-position: center 60%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &#first {
+      z-index: 99;
+
+      &::before {
+        background-image: url("/bookings-1.jpg");
+      }
+    }
+
+    &#second {
+      z-index: 98;
+      transform: translateY(-10%);
+
+      &::before {
+        background-image: url("/bookings-2.jpg");
+      }
+    }
+
+    &#third {
+      z-index: 97;
+      transform: translateY(-20%);
+
+      &::before {
+        background-image: url("/bookings-3.jpg");
+      }
+    }
+
+    &#fourth {
+      z-index: 96;
+      transform: translateY(-30%);
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+
+      &#fourth::before {
+        background-image: url("/bookings-4.jpg");
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#191919, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s all;
+
+      &:hover {
+        background-color: transparent;
+
+        .text {
+          font-size: 3.4rem;
+        }
+      }
+
+      .text {
+        font-size: 3.2rem;
+        transition: 0.1s all;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 30em) {
+  #three .container .overlay .text {
+    font-size: 4.2rem;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  #three {
+    flex-direction: row;
+
+    .container {
+      min-width: 27%;
+      max-height: 60rem;
+      clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
+
+      &#second,
+      &#third {
+        transform: translateX(-10%);
+        clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+      }
+
+      &#third {
+        transform: translateX(-20%);
+      }
+
+      &#fourth {
+        transform: translateX(-30%);
+        clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      .overlay .text {
+        font-size: 2.8rem;
+      }
+    }
+  }
+}
