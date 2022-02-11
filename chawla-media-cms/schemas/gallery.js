@@ -31,6 +31,14 @@ export default {
               type: "image",
               options: {
                 hotspot: true,
+                metadata: [
+                  "dimensions",
+                  "hasAlpha",
+                  "isOpaque",
+                  "blurhash",
+                  "lqip",
+                  "palette",
+                ],
               },
             },
           ],

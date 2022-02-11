@@ -9,17 +9,26 @@ const galleryQuery = `*[_type=="gallery" && name=="Home Gallery"] {
   list[] {
     _key,
     description,
+    "width": image.asset->metadata.dimensions.width,
+    "height": image.asset->metadata.dimensions.height,
     "src": image.asset->url
   }
 }`;
 
-const HomePage = ({ gallery }) => {
+const testimonialsQuery = `*[_type=="testimonials"] {
+  _id,
+  name,
+  occupation,
+  quote
+}`;
+
+const HomePage = ({ gallery, testimonials }) => {
   return (
     <Layout>
       <Section1 gallery={gallery[0].list} />
       <Section2 />
       <Section3 />
-      <Section4 />
+      <Section4 testimonials={testimonials} />
     </Layout>
   );
 };
@@ -28,5 +37,6 @@ export default HomePage;
 
 export async function getStaticProps() {
   const gallery = await sanityClient.fetch(galleryQuery);
-  return { props: { gallery } };
+  const testimonials = await sanityClient.fetch(testimonialsQuery);
+  return { props: { gallery, testimonials } };
 }
