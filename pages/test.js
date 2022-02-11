@@ -1,30 +1,44 @@
 import { sanityClient, urlFor } from "../lib/sanity";
 import Image from "next/image";
 
-const galleryQuery = `*[]`;
-// NEED API KEY
+const galleryQuery = `*[_type=="gallery" && name=="Home Gallery"] {
+  list[] {
+    _key,
+    description,
+    "src": image.asset->url
+  }
+}`;
 
 const TestPage = ({ gallery }) => {
-  console.log(gallery);
   return (
     <div
       style={{
         minWidth: "100vw",
         minHeight: "100vh",
         backgroundColor: "white",
+        color: "black",
       }}
     >
-      {/* {gallery.length !== 0
-        ? gallery.map((image) => {
-            return (
-              <Image
-                key={image.key}
-                src={urlFor(image.ref).url()}
-                alt={image.description}
-              ></Image>
-            );
-          })
-        : console.error("Failed to query gallery.")} */}
+      <h1 style={{ textAlign: "center" }}>Test Page</h1>
+      {gallery[0].list.map((item) => {
+        console.log(item.src);
+        console.log(item.description);
+        return (
+          <div
+            key={item._key}
+            width={750}
+            height={500}
+            style={{ position: "relative", width: "750px", height: "500px" }}
+          >
+            <Image
+              src={item.src}
+              alt={item.description}
+              title={item.description}
+              layout="fill"
+            ></Image>
+          </div>
+        );
+      })}
     </div>
   );
 };
