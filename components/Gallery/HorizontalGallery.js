@@ -3,7 +3,8 @@ import Image from "next/image";
 import styles from "../../styles/Gallery/HorizontalGallery.module.scss";
 import { data } from "../../pages/api/data.js";
 
-const HorizontalGallery = () => {
+const HorizontalGallery = ({ gallery }) => {
+  console.log(gallery);
   const [scrollDirection, setScrollDirection] = useState("");
 
   useEffect(() => {
@@ -64,6 +65,10 @@ const HorizontalGallery = () => {
         </button>
       </div>
       <div id={styles.galleryContainer}>
+        {gallery.map((item) => {
+          console.log(item.src);
+          console.log(item.description);
+        })}
         {data.map((image, i) => {
           let isVertical = image.height > image.width;
           return (

@@ -1,4 +1,4 @@
-import { sanityClient, urlFor } from "../lib/sanity";
+import { sanityClient } from "../lib/sanity";
 import Image from "next/image";
 
 const galleryQuery = `*[_type=="gallery" && name=="Home Gallery"] {
