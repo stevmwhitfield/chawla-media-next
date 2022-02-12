@@ -9,13 +9,11 @@ const Section4 = ({ testimonials }) => {
       <div id={styles.testimonialContainer}>
         {testimonials.map((t) => {
           return (
-            <>
-              <article key={t._id} className={styles.testimonial}>
-                <h1 className={styles.name}>{t.name}</h1>
-                <h3 className={styles.position}>{t.occupation}</h3>
-                <p className={styles.quote}>&ldquo;{t.quote}&rdquo;</p>
-              </article>
-            </>
+            <article key={t._id} className={styles.testimonial}>
+              <h1 className={styles.name}>{t.name}</h1>
+              <h3 className={styles.position}>{t.occupation}</h3>
+              <p className={styles.quote}>&ldquo;{t.quote}&rdquo;</p>
+            </article>
           );
         })}
       </div>
