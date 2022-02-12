@@ -9,6 +9,18 @@ export default {
       type: "string",
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "name",
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").replace("'", ""),
+      },
+      description:
+        "Only use this for portfolio galleries. It MUST match the card's slug.",
+    },
+    {
       name: "list",
       title: "Image List",
       type: "array",

@@ -1,0 +1,67 @@
+.card {
+  width: 30rem;
+  height: 20rem;
+  position: relative;
+
+  .imageContainer,
+  .contentContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .contentContainer {
+    z-index: 10;
+    padding: 1.6rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s all;
+
+    h1 {
+      font-size: 2.1rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+  }
+
+  .imageContainer {
+    transition: 0.2s all;
+  }
+
+  &:hover {
+    .contentContainer {
+      visibility: visible;
+      opacity: 1;
+    }
+    .imageContainer {
+      filter: brightness(0.6) grayscale(1);
+    }
+  }
+}
+
+@media screen and (min-width: 70em) {
+  .card {
+    width: 48rem;
+    height: 32rem;
+
+    .contentContainer {
+      h1 {
+        font-size: 3.6rem;
+      }
+      h3 {
+        font-size: 2.4rem;
+      }
+    }
+  }
+}
