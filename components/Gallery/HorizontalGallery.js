@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "../../styles/Gallery/HorizontalGallery.module.scss";
-import { data } from "../../pages/api/data.js";
 
-const HorizontalGallery = () => {
+const HorizontalGallery = ({ gallery }) => {
   const [scrollDirection, setScrollDirection] = useState("");
 
   useEffect(() => {
@@ -64,11 +63,11 @@ const HorizontalGallery = () => {
         </button>
       </div>
       <div id={styles.galleryContainer}>
-        {data.map((image, i) => {
-          let isVertical = image.height > image.width;
+        {gallery.map((item) => {
+          let isVertical = item.height > item.width;
           return (
             <div
-              key={i}
+              key={item._key}
               className={
                 isVertical
                   ? `${styles.imageContainer} ${styles.vertical}`
@@ -76,8 +75,9 @@ const HorizontalGallery = () => {
               }
             >
               <Image
-                src={image.src}
-                alt={image.alt}
+                src={item.src}
+                alt={item.description}
+                title={item.description}
                 layout="fill"
                 className={isVertical ? `${styles.vertical}` : null}
               ></Image>

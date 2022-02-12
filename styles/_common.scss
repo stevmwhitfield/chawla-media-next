@@ -52,3 +52,42 @@
 .button:active span::before {
   background: #b4b4b4;
 }
+
+.pageHeader {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 3.2rem 0 5.2rem;
+
+  h1 {
+    font-size: 4.2rem;
+    margin: 0.1em 0;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #cccccc;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .pageHeader h2 {
+    font-size: 2.1rem;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .pageHeader {
+    padding: 5.2rem 0;
+
+    h1 {
+      font-size: 4.8rem;
+      // font-size: 6.4rem;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      // font-size: 3.6rem;
+    }
+  }
+}
