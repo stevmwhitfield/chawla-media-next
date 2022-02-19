@@ -6,6 +6,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 import gallery from "./gallery";
 import testimonial from "./testimonial";
 import portfolioCard from "./portfolioCard";
+import faq from "./faq";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -13,5 +14,5 @@ export default createSchema({
   name: "default",
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([gallery, testimonial, portfolioCard]),
+  types: schemaTypes.concat([gallery, testimonial, portfolioCard, faq]),
 });
