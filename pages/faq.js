@@ -28,7 +28,7 @@ const FAQPage = ({ data }) => {
           {/* Map props to cards */}
           {data.map((d) => {
             return (
-              <article className={styles.questionContainer}>
+              <article key={d._id} className={styles.questionContainer}>
                 <h2>{d.question}</h2>
                 <p>{d.answer}</p>
               </article>

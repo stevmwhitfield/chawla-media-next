@@ -18,7 +18,12 @@ const AboutPage = () => {
         </section>
         <section className={styles.container}>
           <article id={styles.imageContainer}>
-            <Image src="/sunishth-chawla.jpg" width={500} height={500} />
+            <Image
+              src="/sunishth-chawla.jpg"
+              alt="Sunishth Chawla"
+              width={500}
+              height={500}
+            />
           </article>
           <article id={styles.contentContainer}>
             <p>
@@ -27,10 +32,10 @@ const AboutPage = () => {
               would be blurry, uncentered, and nowhere near professional. Over
               the course of five years, I have developed the technique of
               photography; whether it be of cars, human subjects, or nature.
-              Having just bought my first, "very own" camera, I have finally
-              gotten the freedom to travel to many parts of the country that I
-              never knew existed. Since then, I have been clicking away and
-              satisfying not only my clientele, but my own self as well.
+              Having just bought my first, &quot;very own&quot; camera, I have
+              finally gotten the freedom to travel to many parts of the country
+              that I never knew existed. Since then, I have been clicking away
+              and satisfying not only my clientele, but my own self as well.
             </p>
             <p>
               Alongside being your photographer, I want to teach you what it is
