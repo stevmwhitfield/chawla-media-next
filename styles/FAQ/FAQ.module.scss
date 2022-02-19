@@ -1,0 +1,15 @@
+.container {
+  width: 90%;
+  max-width: 102.4rem;
+  margin: 0 auto;
+
+  .questionContainer {
+    margin-top: 3.2rem;
+
+    h2 {
+      text-transform: capitalize;
+      margin: 0.25em 0;
+      text-align: justify;
+    }
+  }
+}
