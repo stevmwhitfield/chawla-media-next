@@ -43,7 +43,7 @@ const ContactPage = () => {
                   type="text"
                   name="name"
                   placeholder="John Doe"
-                  pattern={/^([ \u00c0-\u01ffa-zA-Z'\-])+$/}
+                  pattern="^([ \u00c0-\u01ffa-zA-Z'\-])+$"
                   required
                   minLength={2}
                 />
@@ -61,9 +61,6 @@ const ContactPage = () => {
                   type="email"
                   name="email"
                   placeholder="johndoe@email.com"
-                  pattern={
-                    /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
-                  }
                   required
                 />
                 <ValidationError
@@ -80,9 +77,7 @@ const ContactPage = () => {
                   type="phone"
                   name="phone"
                   placeholder="123-456-7890"
-                  pattern={
-                    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
-                  }
+                  pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
                   required
                 />
                 <ValidationError
@@ -136,7 +131,7 @@ const ContactPage = () => {
                   type="text"
                   name="location"
                   placeholder="Orlando, FL"
-                  pattern={/^[A-Z][A-Za-z\s]+, [A-Z]{2}/}
+                  pattern="^[A-Z][A-Za-z\s]+, [A-Z]{2}"
                   required
                 />
                 <ValidationError
