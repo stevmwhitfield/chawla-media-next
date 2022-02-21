@@ -16,7 +16,7 @@ const ContactPage = () => {
     setDate(d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate());
   }, []);
 
-  if (formState.success) {
+  if (formState.succeeded) {
     Router.push("/success");
   }
 
@@ -30,15 +30,15 @@ const ContactPage = () => {
       <Layout>
         <section className="pageHeader">
           <h1>Let&apos;s Talk</h1>
-          <h2>Inquire about a photoshoot or say hello</h2>
+          <h2>Inquire about a photoshoot or anything on your mind</h2>
         </section>
         {/*  */}
         <section id={styles.formContainer}>
           <form id={styles.form} name="contact" method="POST" onSubmit={submit}>
             <input type="hidden" name="form-name" value="contact" />
-            <div id={styles.nameContainer}>
+            <div id={styles.name} className={styles.fieldContainer}>
               <label>
-                Full Name
+                Full Name <span className={styles.required}>*</span>
                 <input
                   type="text"
                   name="name"
@@ -54,9 +54,9 @@ const ContactPage = () => {
                 />
               </label>
             </div>
-            <div id={styles.emailContainer}>
+            <div id={styles.email} className={styles.fieldContainer}>
               <label>
-                Email
+                Email <span className={styles.required}>*</span>
                 <input
                   type="email"
                   name="email"
@@ -70,9 +70,9 @@ const ContactPage = () => {
                 />
               </label>
             </div>
-            <div id={styles.phoneContainer}>
+            <div id={styles.phone} className={styles.fieldContainer}>
               <label>
-                Phone Number
+                Phone Number <span className={styles.required}>*</span>
                 <input
                   type="phone"
                   name="phone"
@@ -87,46 +87,9 @@ const ContactPage = () => {
                 />
               </label>
             </div>
-            <div id={styles.photoshootContainer}>
+            <div id={styles.location} className={styles.fieldContainer}>
               <label>
-                Type of Photoshoot
-                <select name="photoshoot-type" required>
-                  <option disabled selected>
-                    -- Select an option --
-                  </option>
-                  <option value="stills">Stills</option>
-                  <option value="rollers">Rollers</option>
-                  <option value="portraits">Portraits</option>
-                  <option value="cinematic">Cinematic</option>
-                  <option value="other">Other - please specify below</option>
-                </select>
-                <ValidationError
-                  prefix="Photoshoot"
-                  field="photoshoot"
-                  errors={formState.errors}
-                />
-              </label>
-            </div>
-            <div id={styles.dateContainer}>
-              <label>
-                Date
-                <input
-                  type="date"
-                  name="date"
-                  required
-                  min={date}
-                  max={maxDate}
-                />
-                <ValidationError
-                  prefix="Date"
-                  field="date"
-                  errors={formState.errors}
-                />
-              </label>
-            </div>
-            <div id={styles.locationContainer}>
-              <label>
-                Location
+                Location <span className={styles.required}>*</span>
                 <input
                   type="text"
                   name="location"
@@ -141,7 +104,48 @@ const ContactPage = () => {
                 />
               </label>
             </div>
-            <div id={styles.messageContainer}>
+            <div id={styles.photoshoot} className={styles.fieldContainer}>
+              <label>
+                Type of Photoshoot <span className={styles.required}>*</span>
+                <select name="photoshoot-type" required>
+                  <option disabled selected>
+                    -- Select an option --
+                  </option>
+                  <optgroup label="Photoshoots">
+                    <option value="stills">Stills</option>
+                    <option value="rollers">Rollers</option>
+                    <option value="portraits">Portraits</option>
+                    <option value="cinematic">Cinematic</option>
+                  </optgroup>
+                  <optgroup label="Misc.">
+                    <option value="other">Other - please specify below</option>
+                  </optgroup>
+                </select>
+                <ValidationError
+                  prefix="Photoshoot"
+                  field="photoshoot"
+                  errors={formState.errors}
+                />
+              </label>
+            </div>
+            <div id={styles.date} className={styles.fieldContainer}>
+              <label>
+                Date <span className={styles.required}>*</span>
+                <input
+                  type="date"
+                  name="date"
+                  required
+                  min={date}
+                  max={maxDate}
+                />
+                <ValidationError
+                  prefix="Date"
+                  field="date"
+                  errors={formState.errors}
+                />
+              </label>
+            </div>
+            <div id={styles.message} className={styles.fieldContainer}>
               <label>
                 Additional Details
                 <textarea name="message" cols="30" rows="10"></textarea>
@@ -152,7 +156,11 @@ const ContactPage = () => {
                 />
               </label>
             </div>
-            <button type="submit" disabled={formState.submitting}>
+            <button
+              id={styles.button}
+              type="submit"
+              disabled={formState.submitting}
+            >
               Send
             </button>
             <ValidationError errors={formState.errors} />

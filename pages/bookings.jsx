@@ -14,7 +14,7 @@ const BookingsPage = () => {
       <Layout>
         <section className="pageHeader">
           <h1>Bookings</h1>
-          <h2>Let's create something together</h2>
+          <h2>Let&apos;s create something together</h2>
         </section>
         {/* Convert to component */}
         <section className={styles.container}>
