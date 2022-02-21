@@ -11,7 +11,7 @@ import styles from "../styles/Bookings/Bookings.module.scss";
 
 const cardsQuery = `
   *[_type=="bookingsCard"] | order(_createdAt) {
-    _id
+    _key
     name,
     details,
     price,
@@ -38,7 +38,7 @@ const BookingsPage = ({ cards }) => {
           {cards.map((card) => {
             return (
               <BookingsCard
-                key={card._id}
+                key={card._key}
                 imageSrc={card.url}
                 imageAlt={card.alt}
                 title={card.name}
@@ -47,34 +47,6 @@ const BookingsPage = ({ cards }) => {
               />
             );
           })}
-          {/* <BookingsCard
-            imageSrc="/bookings-1.jpg"
-            imageAlt="Mustang"
-            title="Stills"
-            details="3-4 locations, 60-120 minutes"
-            price={130}
-          />
-          <BookingsCard
-            imageSrc="/bookings-2.jpg"
-            imageAlt="Mustang"
-            title="Rollers"
-            details="3-4 locations, 60-120 minutes"
-            price={130}
-          />
-          <BookingsCard
-            imageSrc="/bookings-3.jpg"
-            imageAlt="Mustang"
-            title="Portraits"
-            details="3-4 locations, 60-120 minutes"
-            price={130}
-          />
-          <BookingsCard
-            imageSrc="/bookings-4.jpg"
-            imageAlt="Mustang"
-            title="Cinematics"
-            details="3-4 locations, 60-120 minutes"
-            price={130}
-          /> */}
         </section>
         <section id={styles.footnote}>
           <p>* Additional fees may apply</p>
