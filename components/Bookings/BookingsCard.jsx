@@ -12,8 +12,8 @@ const BookingsCard = ({ imageSrc, imageAlt, title, details, price }) => {
         <span>
           {details === null
             ? ""
-            : details.split(", ").map((line) => {
-                return <p>{line}</p>;
+            : details.split(", ").map((line, i) => {
+                return <p key={i}>{line}</p>;
               })}
         </span>
         <h3>{price}</h3>

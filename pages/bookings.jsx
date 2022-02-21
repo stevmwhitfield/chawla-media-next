@@ -11,6 +11,7 @@ import styles from "../styles/Bookings/Bookings.module.scss";
 
 const cardsQuery = `
   *[_type=="bookingsCard"] | order(_createdAt) {
+    _id
     name,
     details,
     price,
@@ -37,6 +38,7 @@ const BookingsPage = ({ cards }) => {
           {cards.map((card) => {
             return (
               <BookingsCard
+                key={card._id}
                 imageSrc={card.url}
                 imageAlt={card.alt}
                 title={card.name}
