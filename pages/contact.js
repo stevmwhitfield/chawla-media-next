@@ -36,7 +36,7 @@ const ContactPage = () => {
         <section id={styles.formContainer}>
           <form id={styles.form} name="contact" method="POST" onSubmit={submit}>
             <input type="hidden" name="form-name" value="contact" />
-            <div id={styles.nameContainer} style={{ margin: "120px" }}>
+            <div id={styles.nameContainer}>
               <label>
                 Full Name
                 <input
