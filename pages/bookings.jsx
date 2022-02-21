@@ -1,9 +1,25 @@
-import Image from "next/image";
+import { sanityClient } from "../lib/sanity";
+import BookingsCard from "../components/Bookings/BookingsCard";
 import CustomHead from "../components/Head/Head";
 import Layout from "../components/Layout/Layout";
 import styles from "../styles/Bookings/Bookings.module.scss";
 
-const BookingsPage = () => {
+// TODO
+// Use dynamic cards
+//   Change cards to components
+//   Pull card content from Sanity
+
+const cardsQuery = `
+  *[_type=="bookingsCard"] | order(_createdAt) {
+    name,
+    details,
+    price,
+    "url":image.asset->url,
+    alt
+  }
+`;
+
+const BookingsPage = ({ cards }) => {
   return (
     <>
       <CustomHead
@@ -18,78 +34,45 @@ const BookingsPage = () => {
         </section>
         {/* Convert to component */}
         <section className={styles.container}>
-          <article className={styles.card}>
-            <div className={styles.imageContainer}>
-              <Image
-                src="/data/mustang.webp"
-                alt="mustang"
-                width={640}
-                height={360}
+          {cards.map((card) => {
+            return (
+              <BookingsCard
+                imageSrc={card.url}
+                imageAlt={card.alt}
+                title={card.name}
+                details={card.details}
+                price={card.price}
               />
-            </div>
-            <div className={styles.contentContainer}>
-              <h2>Rollers</h2>
-              <span>
-                <p>3-4 locations</p>
-                <p>60-120 minutes</p>
-              </span>
-              <h3>$130</h3>
-            </div>
-          </article>
-          <article className={styles.card}>
-            <div className={styles.imageContainer}>
-              <Image
-                src="/data/mustang.webp"
-                alt="mustang"
-                width={640}
-                height={360}
-              />
-            </div>
-            <div className={styles.contentContainer}>
-              <h2>Rollers</h2>
-              <span>
-                <p>3-4 locations</p>
-                <p>60-120 minutes</p>
-              </span>
-              <h3>$130</h3>
-            </div>
-          </article>
-          <article className={styles.card}>
-            <div className={styles.imageContainer}>
-              <Image
-                src="/data/mustang.webp"
-                alt="mustang"
-                width={640}
-                height={360}
-              />
-            </div>
-            <div className={styles.contentContainer}>
-              <h2>Rollers</h2>
-              <span>
-                <p>3-4 locations</p>
-                <p>60-120 minutes</p>
-              </span>
-              <h3>$130</h3>
-            </div>
-          </article>
-          <article className={styles.card}>
-            <div className={styles.imageContainer}>
-              <Image
-                src="/data/mustang.webp"
-                alt="mustang"
-                width={640}
-                height={360}
-              />
-            </div>
-            <div className={styles.contentContainer}>
-              <h2>Rollers</h2>
-              <span>
-                <p>3-4 locations</p>
-                <p>60-120 minutes</p>
-              </span>
-              <h3>$130</h3>
-            </div>
-          </article>
+            );
+          })}
+          {/* <BookingsCard
+            imageSrc="/bookings-1.jpg"
+            imageAlt="Mustang"
+            title="Stills"
+            details="3-4 locations, 60-120 minutes"
+            price={130}
+          />
+          <BookingsCard
+            imageSrc="/bookings-2.jpg"
+            imageAlt="Mustang"
+            title="Rollers"
+            details="3-4 locations, 60-120 minutes"
+            price={130}
+          />
+          <BookingsCard
+            imageSrc="/bookings-3.jpg"
+            imageAlt="Mustang"
+            title="Portraits"
+            details="3-4 locations, 60-120 minutes"
+            price={130}
+          />
+          <BookingsCard
+            imageSrc="/bookings-4.jpg"
+            imageAlt="Mustang"
+            title="Cinematics"
+            details="3-4 locations, 60-120 minutes"
+            price={130}
+          /> */}
         </section>
         <section id={styles.footnote}>
           <p>* Additional fees may apply</p>
@@ -102,3 +85,8 @@ const BookingsPage = () => {
 };
 
 export default BookingsPage;
+
+export async function getStaticProps() {
+  const cards = await sanityClient.fetch(cardsQuery);
+  return { props: { cards } };
+}
