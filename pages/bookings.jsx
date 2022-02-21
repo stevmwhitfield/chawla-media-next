@@ -4,11 +4,6 @@ import CustomHead from "../components/Head/Head";
 import Layout from "../components/Layout/Layout";
 import styles from "../styles/Bookings/Bookings.module.scss";
 
-// TODO
-// Use dynamic cards
-//   Change cards to components
-//   Pull card content from Sanity
-
 const cardsQuery = `
   *[_type=="bookingsCard"] | order(_createdAt) {
     _id,
