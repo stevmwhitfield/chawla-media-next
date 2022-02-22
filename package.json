@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "env-cmd -f .env next dev",
+    "prebuild": "echo 'Building Sanity to public/sanity' && cd chawla-media-cms && npm i && npx @sanity/cli build ../public/sanity -y && echo 'Done'",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
