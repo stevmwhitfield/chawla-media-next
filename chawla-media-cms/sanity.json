@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "chawla-media-cms"
+    "name": "chawla-media-cms",
+    "basePath": "/sanity"
   },
   "api": {
     "projectId": "oar1b7ks",
