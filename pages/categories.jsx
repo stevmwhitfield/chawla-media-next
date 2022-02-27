@@ -7,7 +7,7 @@ const CategoriesPage = ({ categories }) => {
   return (
     <>
       <CustomHead
-        title="Shop | Chawla Media"
+        title="Categories | Chawla Media"
         description="Purchase exclusive prints of your favorite photos."
         url="https://shop.chawlamedia.com/"
       />
