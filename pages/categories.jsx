@@ -1,10 +1,9 @@
 import commerce from "../lib/commerce";
 import CustomHead from "../components/Head/Head";
 import Layout from "../components/Layout/Layout";
-import ProductList from "../components/Shop/ProductList";
 import CategoryList from "../components/Shop/CategoryList";
 
-const ShopHomePage = ({ merchant, products, categories }) => {
+const CategoriesPage = ({ categories }) => {
   return (
     <>
       <CustomHead
@@ -13,21 +12,16 @@ const ShopHomePage = ({ merchant, products, categories }) => {
         url="https://shop.chawlamedia.com/"
       />
       <Layout>
-        <h1>{merchant.data[0].name}</h1>
-        <h2>Categories</h2>
+        <h1>Categories</h1>
         <CategoryList categories={categories} />
-        <h2>Products</h2>
-        <ProductList products={products} />
       </Layout>
     </>
   );
 };
 
-export default ShopHomePage;
+export default CategoriesPage;
 
 export async function getStaticProps() {
-  const merchant = await commerce.merchants.about();
-  const { data: products } = await commerce.products.list();
   const { data: categories } = await commerce.categories.list();
-  return { props: { merchant, products, categories } };
+  return { props: { categories } };
 }
