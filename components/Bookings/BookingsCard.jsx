@@ -5,7 +5,7 @@ const BookingsCard = ({ imageSrc, imageAlt, title, details, price }) => {
   return (
     <article className={styles.card}>
       <div className={styles.imageContainer}>
-        <Image src={imageSrc} alt={imageAlt} width={640} height={360} />
+        <Image src={imageSrc} alt={imageAlt} width={640} height={426.667} />
       </div>
       <div className={styles.contentContainer}>
         <h2>{title}</h2>
