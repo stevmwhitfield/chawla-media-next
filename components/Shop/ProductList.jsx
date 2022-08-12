@@ -1,24 +1,25 @@
-import Link from "next/link";
 import Product from "./Product";
+import styles from "../../styles/Shop/ProductList.module.scss";
 
 const ProductList = ({ products }) => {
-  if (!products) return;
+	if (!products) return;
 
-  return (
-    <ul>
-      {products.map((product) => {
-        return (
-          <li key={product.id}>
-            <Link href={`/products/${product.permalink}`} passHref>
-              <a>
-                <Product name={product.name} price={product.price} />
-              </a>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
-  );
+	return (
+		<ul className={styles.list}>
+			{products.map((product) => {
+				return (
+					<li key={product.id}>
+						<Product
+							img={product.image.url}
+							name={product.name}
+							price={product.price}
+							slug={`/products/${product.permalink}`}
+						/>
+					</li>
+				);
+			})}
+		</ul>
+	);
 };
 
 export default ProductList;
