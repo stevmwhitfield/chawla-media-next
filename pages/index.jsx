@@ -20,7 +20,9 @@ const ShopHomePage = ({ merchant, products, categories }) => {
 				<section className="pageHeader">
 					<h1>Shop</h1>
 				</section>
-				<ProductList products={products} />
+				<section>
+					<ProductList products={products} />
+				</section>
 			</Layout>
 		</>
 	);

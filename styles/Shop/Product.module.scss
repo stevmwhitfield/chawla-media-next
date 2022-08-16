@@ -1,5 +1,5 @@
 .card {
-	border: 1px solid #fff;
+	// border: 1px solid #fff;
 	width: fit-content;
 	min-width: 24rem;
 }
@@ -10,19 +10,27 @@
 }
 
 .thumbnail {
-	margin-bottom: 1.6rem;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	max-width: 20.6rem;
+	max-height: 30.9rem;
 }
 
 .title {
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 0.15rem;
-	text-align: center;
+	// text-align: center;
+	margin-top: 32.5rem;
 	margin-bottom: 0.8rem;
+	// margin-left: 0.8rem;
 }
 
 .price {
-	text-align: center;
+	// text-align: center;
+	color: #bbbbbb;
+	// margin-left: 0.8rem;
 }
 
 .divider {
