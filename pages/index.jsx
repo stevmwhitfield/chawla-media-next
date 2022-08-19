@@ -18,7 +18,7 @@ const ShopHomePage = ({ merchant, products, categories }) => {
 				{/* <CategoryList categories={categories} /> */}
 				{/* <h2>Products</h2> */}
 				<section className="pageHeader">
-					<h1>Shop</h1>
+					<h1>Featured Items</h1>
 				</section>
 				<section>
 					<ProductList products={products} />
