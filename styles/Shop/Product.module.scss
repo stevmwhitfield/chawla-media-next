@@ -1,7 +1,6 @@
 .card {
-	// border: 1px solid #fff;
 	width: fit-content;
-	min-width: 24rem;
+	min-width: 30rem;
 }
 
 .content {
@@ -13,24 +12,28 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	max-width: 20.6rem;
-	max-height: 30.9rem;
+	max-width: 30rem;
+	max-height: 30rem;
+}
+
+.category {
+	color: #dddddd;
+	font-weight: bold;
+	margin-top: 31.6rem;
+	margin-bottom: 0.8rem;
+	text-transform: uppercase;
+	font-size: 1.4rem;
 }
 
 .title {
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 0.15rem;
-	// text-align: center;
-	margin-top: 32.5rem;
 	margin-bottom: 0.8rem;
-	// margin-left: 0.8rem;
 }
 
 .price {
-	// text-align: center;
 	color: #bbbbbb;
-	// margin-left: 0.8rem;
 }
 
 .divider {

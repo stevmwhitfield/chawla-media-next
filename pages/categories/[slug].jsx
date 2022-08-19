@@ -1,11 +1,14 @@
 import commerce from "../../lib/commerce";
 import ProductList from "../../components/Shop/ProductList";
+import Layout from "../../components/Layout/Layout";
 
 const CategoryPage = ({ category, products }) => {
   return (
     <>
-      <h1>{category.name}</h1>
-      <ProductList products={products} />
+      <Layout>
+        <h1>{category.name}</h1>
+        <ProductList products={products} />
+      </Layout>
     </>
   );
 };

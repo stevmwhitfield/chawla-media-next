@@ -1,5 +1,6 @@
 import commerce from "../../lib/commerce";
 import { useCartDispatch } from "../../context/cart";
+import Layout from "../../components/Layout/Layout";
 
 const ProductPage = ({ product }) => {
   const { setCart } = useCartDispatch();
@@ -9,9 +10,11 @@ const ProductPage = ({ product }) => {
 
   return (
     <>
-      <h1>{product.name}</h1>
-      <p>{product.price.formatted_with_symbol}</p>
-      <button onClick={addToCart}>Add to cart</button>
+      <Layout>
+        <h1>{product.name}</h1>
+        <p>{product.price.formatted_with_symbol}</p>
+        <button onClick={addToCart}>Add to cart</button>
+      </Layout>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { useCartDispatch, useCartState } from "../context/cart";
 import commerce from "../lib/commerce";
+import Layout from "../components/Layout/Layout";
 
 const CartItem = ({ id, name, quantity, line_total }) => {
   const { setCart } = useCartDispatch();
@@ -40,19 +41,31 @@ const CartPage = () => {
 
   const isEmpty = line_items.length === 0;
 
-  if (isEmpty) return <p>Cart is empty.</p>;
+  if (isEmpty)
+    return (
+      <>
+        <Layout>
+          <p>Cart is empty.</p>
+        </Layout>
+      </>
+    );
+
   return (
-    <div>
-      <h1>Cart</h1>
-      {line_items.map((item) => (
-        <CartItem key={item.id} {...item} />
-      ))}
-      <hr />
-      <p>
-        <strong>Subtotal: </strong>
-        {subtotal.formatted_with_symbol}
-      </p>
-    </div>
+    <>
+      <Layout>
+        <div>
+          <h1>Cart</h1>
+          {line_items.map((item) => (
+            <CartItem key={item.id} {...item} />
+          ))}
+          <hr />
+          <p>
+            <strong>Subtotal: </strong>
+            {subtotal.formatted_with_symbol}
+          </p>
+        </div>
+      </Layout>
+    </>
   );
 };
 
