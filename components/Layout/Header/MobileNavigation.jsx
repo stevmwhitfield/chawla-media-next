@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from "../../../styles/Layout/Header/MobileNavigation.module.scss";
 
-const MobileNavigation = () => {
+const MobileNavigation = ({ categories }) => {
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
   const clickHandler = () => {
@@ -61,46 +61,67 @@ const MobileNavigation = () => {
               </a>
             </Link>
           </li>
-          <li className={styles.navItem}>
-            <Link href="/shop" passHref>
-              <a
-                className={
-                  router.pathname === "/shop" ||
-                  router.pathname === "shop.chawlamedia.com"
-                    ? `${styles.navLink} ${styles.active}`
-                    : `${styles.navLink}`
-                }
-              >
-                Shop
-              </a>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/portfolio" passHref>
-              <a
-                className={
-                  router.pathname === "/portfolio"
-                    ? `${styles.navLink} ${styles.active}`
-                    : `${styles.navLink}`
-                }
-              >
-                Portfolio
-              </a>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/bookings" passHref>
-              <a
-                className={
-                  router.pathname === "/bookings"
-                    ? `${styles.navLink} ${styles.active}`
-                    : `${styles.navLink}`
-                }
-              >
-                Bookings
-              </a>
-            </Link>
-          </li>
+          {categories.map((category) => {
+            if (category.children.length > 0) {
+              return (
+                <li
+                  key={category.id}
+                  className={`${styles.navItem} ${styles.hasSubmenu}`}
+                >
+                  <Link href={`/categories/${category.slug}`} passHref>
+                    <a
+                      className={
+                        router.pathname === `/categories/${category.slug}`
+                          ? `${styles.navLink} ${styles.active}`
+                          : `${styles.navLink}`
+                      }
+                    >
+                      {category.name}
+                    </a>
+                  </Link>
+                  <ul className={styles.submenu}>
+                    {category.children.map((child) => {
+                      return (
+                        <li key={child.id} className={styles.submenuItem}>
+                          <Link
+                            href={`/categories/${category.slug}/${child.slug}`}
+                            passHref
+                          >
+                            <a
+                              className={
+                                router.pathname ===
+                                `/categories/${category.slug}`
+                                  ? `${styles.navLink} ${styles.active}`
+                                  : `${styles.navLink}`
+                              }
+                            >
+                              {child.name}
+                            </a>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              );
+            } else {
+              return (
+                <li key={category.id} className={styles.navItem}>
+                  <Link href={`/categories/${category.slug}`} passHref>
+                    <a
+                      className={
+                        router.pathname === `/categories/${category.slug}`
+                          ? `${styles.navLink} ${styles.active}`
+                          : `${styles.navLink}`
+                      }
+                    >
+                      {category.name}
+                    </a>
+                  </Link>
+                </li>
+              );
+            }
+          })}
           <li className={styles.navItem}>
             <Link href="/contact" passHref>
               <a
@@ -111,32 +132,6 @@ const MobileNavigation = () => {
                 }
               >
                 Contact
-              </a>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/about-me" passHref>
-              <a
-                className={
-                  router.pathname === "/about-me"
-                    ? `${styles.navLink} ${styles.active}`
-                    : `${styles.navLink}`
-                }
-              >
-                About Me
-              </a>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/faq" passHref>
-              <a
-                className={
-                  router.pathname === "/faq"
-                    ? `${styles.navLink} ${styles.active}`
-                    : `${styles.navLink}`
-                }
-              >
-                FAQ
               </a>
             </Link>
           </li>
