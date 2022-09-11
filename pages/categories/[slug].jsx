@@ -3,10 +3,13 @@ import ProductList from "../../components/Shop/ProductList";
 import Layout from "../../components/Layout/Layout";
 
 const CategoryPage = ({ category, products }) => {
+  console.log(products);
   return (
     <>
       <Layout>
-        <h1>{category.name}</h1>
+        <section className="pageHeader">
+          <h1>{category.name}</h1>
+        </section>
         <ProductList products={products} />
       </Layout>
     </>

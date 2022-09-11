@@ -35,7 +35,7 @@ const DesktopNavigation = ({ categories }) => {
                 </a>
               </Link>
             </li>
-            {categories.map((category) => {
+            {/* {categories.map((category) => {
               if (category.children.length > 0) {
                 return (
                   <li
@@ -95,6 +95,26 @@ const DesktopNavigation = ({ categories }) => {
                   </li>
                 );
               }
+            })} */}
+            {categories.map((category) => {
+              return (
+                <li
+                  key={category.id}
+                  className={`${styles.navItem} ${styles.hasSubmenu}`}
+                >
+                  <Link href={`/categories/${category.slug}`} passHref>
+                    <a
+                      className={
+                        router.pathname === `/categories/${category.slug}`
+                          ? `${styles.navLink} ${styles.active}`
+                          : `${styles.navLink}`
+                      }
+                    >
+                      {category.name}
+                    </a>
+                  </Link>
+                </li>
+              );
             })}
             <li className={styles.navItem}>
               <Link href="/contact" passHref>

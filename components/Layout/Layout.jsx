@@ -11,7 +11,6 @@ const Layout = (props) => {
   useEffect(() => {
     getCategories()
       .then((data) => {
-        console.log(data);
         setCategories(data);
       })
       .catch((err) => console.log(err));
