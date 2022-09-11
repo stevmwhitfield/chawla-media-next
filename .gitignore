@@ -38,3 +38,4 @@ yarn-error.log*
 /components/Gallery/HorizontalGallery.disabled
 /styles/Gallery/HorizontalGallery.module.disabled
 /chawla-media-cms/node_modules
+notes.*
